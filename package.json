@@ -1,0 +1,9 @@
+{
+  "name": "hexo-img-onerror",
+  "version": "0.9.1",
+  "main": "index.js",
+  "keywords": ["hexo", "plugin", "img-onerror"],
+  "author": "wgxls",
+  "license": "MIT",
+  "description": "A Hexo plugin to add onerror attributes to images"
+}
