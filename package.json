@@ -1,6 +1,6 @@
 {
   "name": "hexo-img-onerror",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "main": "index.js",
   "keywords": ["hexo", "plugin", "img-onerror"],
   "author": "wgxls",
