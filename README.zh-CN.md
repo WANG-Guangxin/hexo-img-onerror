@@ -26,6 +26,7 @@ npm install hexo-img-onerror --save
 ```yaml
 img_onerror:
   enable: true
+  onerror-map: ./onerror-map.json
   src_prefix:
     - https://example.com/path1
     - https://example.com/path2
@@ -35,6 +36,19 @@ img_onerror:
 ```
 
 2. 此配置启用插件并设置备用图像以显示，如果任何图像加载失败。
+
+如果配置了 `onerror-map`，插件会优先从匹配到的 `src_prefix` 前缀之后提取路径，并在 JSON 映射表中查找对应的备用链接，然后将该链接写入 `onerror`。JSON 文件格式为一个简单的对象，键为相对于 `src_prefix` 的路径，例如：
+
+```json
+{
+  "aa/bb/cc.png": "https://fallback.example.com/aa/bb/cc.png",
+  "100MB.bin": "https://fallback.example.com/100MB.bin"
+}
+```
+
+例如，如果你的 `src_prefix` 包含 `https://api.wgxls.eu.org:8443/files`，那么源地址 `https://api.wgxls.eu.org:8443/files/aa/bb/cc.png` 会查找 `aa/bb/cc.png` 作为 `onerror-map` 键。
+
+如果没有配置 `onerror-map`，或者在映射表中未找到对应条目，则会回退到现有的 `src_prefix` / `onerror_src_prefix` 替换逻辑。
 
 ### 示例
 
